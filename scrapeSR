@@ -1,0 +1,5 @@
+#!/bin/bash
+# provide subreddit name, number of posts to retrieve
+python scrape.py $1 $2
+# note that users.py updates the Rank table automatically
+python users.py

@@ -1,0 +1,32 @@
+User
+    username (text) (primary key)
+    linkScore (integer)
+    commentScore (integer)
+
+Submission
+    id (text) (primary key)
+    author (text)
+    score (integer)
+    subreddit (text)
+
+Comment
+    id (text) (primary key)
+    author (text)
+    score (integer)
+    level (integer)
+        -currently, 0 represents top-level comment, >0 is not top-level
+    parent (text) (foreign key references Comment(id))
+        -the comment id of the parent
+        -null for a top-level comment
+    submissionID (text) (foreign key references Submission(id))
+        -the submission under which this comment was posted
+    subreddit (text)
+
+Rank
+    username (text) (primary key)
+    page_score (real)
+    page_rank (real)
+    hits_score (real)
+    hits_rank (real)
+    combo_score (real)
+    combo_rank (real)
